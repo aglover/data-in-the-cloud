@@ -21,10 +21,14 @@ This workshop is organized into 3 labs. We don't have a lot of time, so I strong
   * [MongoDB](http://www.mongodb.org/)
     * [MongoHQ](https://www.mongohq.com/home)
     * [MongoLab](https://mongolab.com/welcome/)
+    * [Java development 2.0: MongoDB: A NoSQL datastore with (all the right) RDBMS moves](http://www.ibm.com/developerworks/library/j-javadev2-12/)
+    * [The Disco Blog: MongoDB](http://thediscoblog.com/blog/categories/mongodb/)
   * [Redis](http://redis.io/)
     * [Redis Cloud](http://redis-cloud.com/)
     * [OpenRedis](https://openredis.com/)
     * [Redis To Go](http://redistogo.com/)
+    * [Java development 2.0: Redis for the real world](http://www.ibm.com/developerworks/library/j-javadev2-22/)
+    * [The Disco Blog: Redis](http://thediscoblog.com/blog/categories/redis/)
 
 
 ## License
