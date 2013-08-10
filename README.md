@@ -27,7 +27,7 @@ Like traditional RDBMSs, MongoDB supports ad-hoc queries and collections (i.e. t
 
 There's two options when getting started with MongoDB: you can download and install it (which is quite easy) or you can use an online interactive shell (that only supports _some_ of the standard features). If you are on an OSX machine, I would recommend installing MongoDB; plus, installing Mongo will give you the the `mongo` shell command, which you'll want for interacting with cloud-based MongoDB instances. 
 
-##### Installing MongoDB:
+##### Installing MongoDB
 
 Go to the [download section of the MongoDB website](http://www.mongodb.org/downloads), grab your platform's binary, unzip it, optionally create a data directory (where MongoDB writes the contents of your datastore -- this can be an existing directory if you'd like), and then start an instance via the `mongod` command. You'll need to point the `mongod` command to where you want Mongo to write your data (that's the data directory I mentioned earlier) like so:
 
@@ -36,6 +36,17 @@ $> ./bin/mongod  --dbpath ./data/db/  -v
 ```
 
 Note, I'm running the `mongod` from within the root of where I installed MongoDB. The `--dbpath` points to where I'd like the data to reside and the `-v` flag indicates I'd like verbose output -- helpful in watching what's going on.
+
+Now MongoDB is running. 
+
+##### Using the `mongo` shell
+
+##### Using the online shell
+
+Go to [try.mongodb.org/](http://try.mongodb.org/). Remember, this shell doesn't support _all_ the commands you can normally run in a local Mongo shell; what's more, a few of the features we'll cover in this workshop are not supported. 
+
+
+
 
 ### Lab #2
 
