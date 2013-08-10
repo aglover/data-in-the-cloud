@@ -51,6 +51,9 @@ $> ./bin/mongo
 
 Go to [try.mongodb.org](http://try.mongodb.org/). Remember, this shell doesn't support _all_ the commands you can normally run in a local Mongo shell; what's more, a few of the features we'll cover in this workshop are not supported. 
 
+![try mongo](/docs/imgs/try-mongo.png)
+
+
 ##### Working with Mongo
 
 As indicated earlier, MongoDB is a document-oriented database; what's more, those documents are JSON documents. Accordingly, MongoDB works directly with JSON (which makes this database a _great_ fit with JavaScript). Thus, to define a document, you simply define it in JSON like so: 
