@@ -66,6 +66,8 @@ This document can be directly saved into Mongo -- note the usage of a list as a 
 
 For this workshop, we're going to work with _business cards_; that is, these are often great examples of a direct fit for document-orientation because it's somewhat challenging to manage their data in an RDBMS (as card formats can vary; thus, leading to a lot of `null` column values, for example)
 
+###### Inserts
+
 In the `mongo` shell, type (or copy and paste!) the following: 
 
 ```
@@ -122,6 +124,8 @@ db.business_cards.count()  //FYI, this won't work on try.mongodb.org
 
 You should see at least 4 if you inserted the documents I suggested. (Feel free to insert more, however)
 
+###### Querying
+
 Querying for data is what a database is all about, right? To find a document, you simply fashion an ad-hoc query. Supply an attribute name and value. For example, to find a document with a `name` attribute whose value is "Andrew Glover" you'd type:
 
 ```
@@ -142,7 +146,7 @@ __Question__: How would you find the documents that _do not_ have a `linkedin` a
 Are you a bit tired of mentally parsing that JSON? Wouldn't it be easier if that JSON was pretty printed? Not a problem! Use the `forEach` function, which iterates over a collection of returned documents and pass in the `printjson` value like so:
 
 ```
-db.business_cards.find({twitter: {$exists:true}}).forEach(printjson) //for each won't work
+db.business_cards.find({twitter: {$exists:true}}).forEach(printjson) //for each won't work in try.mongodb.org
 ```
 
 Now isn't that nice? 
@@ -159,6 +163,8 @@ The 1 in this case represents what you'd like to see. A 0 means leave the `attri
 db.business_cards.find({twitter: {$exists:true}}, {name:1, twitter:1})
 ```
 
+###### Updates
+
 Want to update a particular document? You can do this as well via the `update` command. This command takes two JSON documents as parameters: the selector, which is what document you wish to update, and an operator. There are a lot of operator options, however, the easiest one is the `$set` operator. This allows you to create a new field. 
 
 For example, to add a `linked` attribute to the document whose `name` field is "Andrew Glover", you can type:
@@ -167,22 +173,33 @@ For example, to add a `linked` attribute to the document whose `name` field is "
 db.business_cards.update({name:"Andrew Glover"},{$set: {linkedin:"http://www.linkedin.com/in/ajglover/l"}}) 
 ```
 
+You can verify the changes like so:
+
+```
+db.business_cards.find({name:"Andrew Glover"}).forEach(printjson)
+```
+
 __Question__: If the `$unset` operator _removes_ a field, how would you remove the `home` field from the document whose `name` is "Mike Smith"?
 
-db.business_cards.find({name:"Andrew Glover"}).forEach(printjson)
 
+##### Using MongoDB in the cloud
 
-mongo dharma.mongohq.com:10044/seattle -u <user> -p<password>
-mongodb://<user>:<password>@dharma.mongohq.com:10044/seattle
+There are a couple MongoDB-as-a-service options available to you; I happen to favor [MongoHQ](https://www.mongohq.com/home) as I've had a good experience with them, especially their support. Accordingly, for this workshop, we'll use MongoHQ; moreover, I've created a free database with a user dubbed `modev` with a password of `123456`. 
 
-user: modev
-psrd: 123456
+Using the `mongo` command, you can connect to remote MongoDB instances; for example, if the URL to the database is `dharma.mongohq.com`, it's listening on port 10044, and the database name is `seattle` you can connect to it as follows:
 
-exit out of local shell
+```
+$> mongo dharma.mongohq.com:10044/seattle -u <user> -p<password>
+```
 
-~/Development/tools/mongodb-osx-x86_64-2.2.3$>./bin/mongo dharma.mongohq.com:10044/seattle -u modev -p 123456
+__Question__: Given the credentials above, can you connect to the MongoHQ `seattle` database? 
 
-now you can do the same read/updates/creates if you'd like
+__Question__: How many business cards are in the `business_cards` collection? 
+
+__Question__: How many people have a mobile number of "301-555-5555"? Hint: you can always attach a `.count()` to a find query.
+
+__Question__: What are their names of the people who have a mobile number of "301-555-5555"?
+
 
 ### Lab #2
 
