@@ -11,6 +11,15 @@ This workshop is organized into 3 labs. We don't have a lot of time, so I strong
 
 ### Lab #1
 
+In Lab #1, you'll become familiar with MongoDB, which is 
+
+>is a document database that provides high performance, high availability, and easy scalability.
+>> [Introduction to MongoDB](http://www.mongodb.org/about/introduction/)
+
+MongoDB is document-oriented; thus, there are no tables with rows, but simply JSON documents. There are no joins either. Like traditional RDBMSs, MongoDB supports ad-hoc queries and collections (i.e. tables) can be indexed. MongoDB supports high availability via [replica sets](http://docs.mongodb.org/manual/replication/) and easy scalability via [automatic sharding](http://docs.mongodb.org/manual/sharding/) (i.e. it's done via MongoDB, [not you](http://www.ibm.com/developerworks/library/j-javadev2-11/) or [your code](http://www.javaworld.com/community/node/4797)). 
+
+
+
 ### Lab #2
 
 ### Lab #3
@@ -19,11 +28,13 @@ This workshop is organized into 3 labs. We don't have a lot of time, so I strong
 ## Helpful Resources
   
   * [MongoDB](http://www.mongodb.org/)
+    * [Try MongoDB](http://try.mongodb.org/)
     * [MongoHQ](https://www.mongohq.com/home)
     * [MongoLab](https://mongolab.com/welcome/)
     * [Java development 2.0: MongoDB: A NoSQL datastore with (all the right) RDBMS moves](http://www.ibm.com/developerworks/library/j-javadev2-12/)
     * [The Disco Blog: MongoDB](http://thediscoblog.com/blog/categories/mongodb/)
   * [Redis](http://redis.io/)
+    * [Try Redis](http://try.redis.io/)
     * [Redis Cloud](http://redis-cloud.com/)
     * [OpenRedis](https://openredis.com/)
     * [Redis To Go](http://redistogo.com/)
