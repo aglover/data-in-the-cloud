@@ -41,12 +41,148 @@ Now MongoDB is running.
 
 ##### Using the `mongo` shell
 
-##### Using the online shell
+Now open up another terminal and change directories into where you installed Mongo. Now type:
 
-Go to [try.mongodb.org/](http://try.mongodb.org/). Remember, this shell doesn't support _all_ the commands you can normally run in a local Mongo shell; what's more, a few of the features we'll cover in this workshop are not supported. 
+```
+$> ./bin/mongo
+```
+
+##### Using the online shell (if you did not install Mongo locally)
+
+Go to [try.mongodb.org](http://try.mongodb.org/). Remember, this shell doesn't support _all_ the commands you can normally run in a local Mongo shell; what's more, a few of the features we'll cover in this workshop are not supported. 
+
+##### Working with Mongo
+
+As indicated earlier, MongoDB is a document-oriented database; what's more, those documents are JSON documents. Accordingly, MongoDB works directly with JSON (which makes this database a _great_ fit with JavaScript). Thus, to define a document, you simply define it in JSON like so: 
+
+```
+{
+ some_key: "some value",
+ some_list: ["a", "b", "c"]
+}
+```
+
+This document can be directly saved into Mongo -- note the usage of a list as a value. 
+
+For this workshop, we're going to work with _business cards_; that is, these are often great examples of a direct fit for document-orientation because it's somewhat challenging to manage their data in an RDBMS (as card formats can vary; thus, leading to a lot of `null` column values, for example)
+
+In the `mongo` shell, type (or copy and paste!) the following: 
+
+```
+card = {
+  name: "Andrew Glover",
+  mobile: "703-555-5555",
+  twitter: "aglover",
+  email: "ajglover@acme.com"
+}
+```
+
+Now, you can insert the document into what Mongo dubs a _collection_, which is like a table. We'll call this collection `business_cards`. To insert the `card`  document, type (or copy & paste) the following:
+
+```
+db.business_cards.insert(card)
+```
+
+That just "persisted" a document. I put persisted in quotes because in fact, for a few moments after you insert, the document is actually _in memory_ and later will be written to disk. You can control this behavior, however, via some flags; that is, you can force a write to disk on insert as well via various language drivers.
+
+Now create another three cards in the same manner as above. Here are the cards to insert:
+
+```
+{
+  name: "Lee Glover",
+  mobile: "321-555-5555",
+  twitter: "lglve",
+  email: "lee@acme.com",
+  blog: "thediscoblog.com"
+}
+
+{
+  name: "Emily Smith",
+  mobile: "301-555-5555",
+  email: "esmith@acme.com"
+}
+
+{
+  name: "Mike Smith",
+  mobile: "301-555-5555",
+  home: "801-555-5555",
+  email: "esmith@acme.com",
+  linkedin: "http://linkedin.com/msmtih",
+  twitter: "smith"
+}
+```
+
+Notice how each business card in this case is slightly different -- some have `twitter` as an field, some have `linkedin`, etc. 
+
+Now that you've inserted a few documents, type the following command to see how many are in the `business_cards` collection:
+
+```
+db.business_cards.count()  //FYI, this won't work on try.mongodb.org
+```
+
+You should see at least 4 if you inserted the documents I suggested. (Feel free to insert more, however)
+
+Querying for data is what a database is all about, right? To find a document, you simply fashion an ad-hoc query. Supply an attribute name and value. For example, to find a document with a `name` attribute whose value is "Andrew Glover" you'd type:
+
+```
+db.business_cards.find({name:"Andrew Glover"})
+```
+
+__Question__: How would you find a document (or business card) whose `twitter` value was "smith"? 
+
+Notice how the documents we inserted don't all have a `twitter` attribute defined. You might wonder how you'd then find only those documents that have a `twitter` attribute. Mongo's query language supports some interesting operators; in this case, you can use the `$exists` operator like so:
+
+```
+db.business_cards.find({twitter: {$exists:true}})
+```
+
+__Question__: How would you find the documents that _do not_ have a `linkedin` attribute? 
 
 
+Are you a bit tired of mentally parsing that JSON? Wouldn't it be easier if that JSON was pretty printed? Not a problem! Use the `forEach` function, which iterates over a collection of returned documents and pass in the `printjson` value like so:
 
+```
+db.business_cards.find({twitter: {$exists:true}}).forEach(printjson) //for each won't work
+```
+
+Now isn't that nice? 
+
+But wait, you're tired of seeing the entire document. Not a problem either -- just use _projections_ in Mongo. These allow you to specify what or what you'd not like to see. For example, if you want just the `name` values for documents that have a `twitter` attribute, you can type:
+
+```
+db.business_cards.find({twitter: {$exists:true}}, {name:1})
+```
+
+The 1 in this case represents what you'd like to see. A 0 means leave the `attribute` out. You can, of course, select multiple attributes too:
+
+```
+db.business_cards.find({twitter: {$exists:true}}, {name:1, twitter:1})
+```
+
+Want to update a particular document? You can do this as well via the `update` command. This command takes two JSON documents as parameters: the selector, which is what document you wish to update, and an operator. There are a lot of operator options, however, the easiest one is the `$set` operator. This allows you to create a new field. 
+
+For example, to add a `linked` attribute to the document whose `name` field is "Andrew Glover", you can type:
+
+```
+db.business_cards.update({name:"Andrew Glover"},{$set: {linkedin:"http://www.linkedin.com/in/ajglover/l"}}) 
+```
+
+__Question__: If the `$unset` operator _removes_ a field, how would you remove the `home` field from the document whose `name` is "Mike Smith"?
+
+db.business_cards.find({name:"Andrew Glover"}).forEach(printjson)
+
+
+mongo dharma.mongohq.com:10044/seattle -u <user> -p<password>
+mongodb://<user>:<password>@dharma.mongohq.com:10044/seattle
+
+user: modev
+psrd: 123456
+
+exit out of local shell
+
+~/Development/tools/mongodb-osx-x86_64-2.2.3$>./bin/mongo dharma.mongohq.com:10044/seattle -u modev -p 123456
+
+now you can do the same read/updates/creates if you'd like
 
 ### Lab #2
 
