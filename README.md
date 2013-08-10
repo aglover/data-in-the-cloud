@@ -13,12 +13,29 @@ This workshop is organized into 3 labs. We don't have a lot of time, so I strong
 
 In Lab #1, you'll become familiar with MongoDB, which is 
 
->is a document database that provides high performance, high availability, and easy scalability.
+>a document database that provides high performance, high availability, and easy scalability.
 >> [Introduction to MongoDB](http://www.mongodb.org/about/introduction/)
 
-MongoDB is document-oriented; thus, there are no tables with rows, but simply JSON documents. There are no joins either. Like traditional RDBMSs, MongoDB supports ad-hoc queries and collections (i.e. tables) can be indexed. MongoDB supports high availability via [replica sets](http://docs.mongodb.org/manual/replication/) and easy scalability via [automatic sharding](http://docs.mongodb.org/manual/sharding/) (i.e. it's done via MongoDB, [not you](http://www.ibm.com/developerworks/library/j-javadev2-11/) or [your code](http://www.javaworld.com/community/node/4797)). 
+MongoDB is document-oriented; thus, there are no tables with rows, but simply JSON documents. There are no joins either. This might seem scary at first, however
 
+>document-oriented (or schemaless) data is simpler and far more flexible to manage than relational data. Rather than storing data into a rigid schema of tables, rows, and columns, joined by relationships, documents are written individually, containing whatever data they require.
+>> [Java development 2.0: MongoDB: A NoSQL datastore with (all the right) RDBMS moves](http://www.ibm.com/developerworks/library/j-javadev2-12/)
 
+Like traditional RDBMSs, MongoDB supports ad-hoc queries and collections (i.e. tables) can be indexed. MongoDB supports high availability via [replica sets](http://docs.mongodb.org/manual/replication/) and easy scalability via [automatic sharding](http://docs.mongodb.org/manual/sharding/) (i.e. it's done _via MongoDB_ and [not by you](http://www.ibm.com/developerworks/library/j-javadev2-11/) or [your code](http://www.javaworld.com/community/node/4797)). 
+
+#### Getting started with MongoDB
+
+There's two options when getting started with MongoDB: you can download and install it (which is quite easy) or you can use an online interactive shell (that only supports _some_ of the standard features). If you are on an OSX machine, I would recommend installing MongoDB; plus, installing Mongo will give you the the `mongo` shell command, which you'll want for interacting with cloud-based MongoDB instances. 
+
+##### Installing MongoDB:
+
+Go to the [download section of the MongoDB website](http://www.mongodb.org/downloads), grab your platform's binary, unzip it, optionally create a data directory (where MongoDB writes the contents of your datastore -- this can be an existing directory if you'd like), and then start an instance via the `mongod` command. You'll need to point the `mongod` command to where you want Mongo to write your data (that's the data directory I mentioned earlier) like so:
+
+```
+$> ./bin/mongod  --dbpath ./data/db/  -v
+```
+
+Note, I'm running the `mongod` from within the root of where I installed MongoDB. The `--dbpath` points to where I'd like the data to reside and the `-v` flag indicates I'd like verbose output -- helpful in watching what's going on.
 
 ### Lab #2
 
