@@ -40,7 +40,7 @@ $> ./bin/mongo
 
 Go to [try.mongodb.org](http://try.mongodb.org/). Remember, this shell doesn't support _all_ the commands you can normally run in a local Mongo shell; what's more, a few of the features we'll cover in this workshop are not supported. 
 
-![try mongo](/../../docs/imgs/try-mongo.png)
+![try mongo](../../docs/imgs/try-mongo.png)
 
 
 ##### Working with Mongo
@@ -178,7 +178,7 @@ __Question__: If the `$unset` operator _removes_ a field, how would you remove t
 
 There are a couple MongoDB-as-a-service options available to you; I happen to favor [MongoHQ](https://www.mongohq.com/home) as I've had a good experience with them, especially their support. 
 
-![hq](/../../docs/imgs/hq-2.png)
+![hq](../../docs/imgs/hq-2.png)
 
 Accordingly, for this workshop, we'll use MongoHQ; moreover, I've created a free database with a user dubbed `modev` with a password of `123456`. 
 
