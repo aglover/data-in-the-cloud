@@ -187,7 +187,11 @@ __Question__: If the `$unset` operator _removes_ a field, how would you remove t
 
 ##### Using MongoDB in the cloud
 
-There are a couple MongoDB-as-a-service options available to you; I happen to favor [MongoHQ](https://www.mongohq.com/home) as I've had a good experience with them, especially their support. Accordingly, for this workshop, we'll use MongoHQ; moreover, I've created a free database with a user dubbed `modev` with a password of `123456`. 
+There are a couple MongoDB-as-a-service options available to you; I happen to favor [MongoHQ](https://www.mongohq.com/home) as I've had a good experience with them, especially their support. 
+
+![hq](/docs/imgs/hq-2.png)
+
+Accordingly, for this workshop, we'll use MongoHQ; moreover, I've created a free database with a user dubbed `modev` with a password of `123456`. 
 
 Using the `mongo` command, you can connect to remote MongoDB instances; for example, if the URL to the database is `dharma.mongohq.com`, it's listening on port 10044, and the database name is `seattle` you can connect to it as follows:
 
