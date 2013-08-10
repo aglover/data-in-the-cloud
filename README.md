@@ -11,6 +11,7 @@ This workshop is organized into 3 labs. We don't have a lot of time, so I strong
 
 ### Lab #1
 
+In [Lab #1](/labs/lab_1/README.md), you'll become familiar with [MongoDB](http://www.mongodb.org/).
 
 ### Lab #2
 
