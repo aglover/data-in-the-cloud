@@ -291,7 +291,7 @@ __Question__: What is my _most recent_ 3 favorite beers?
 
 ![redis-clout](../../docs/imgs/redis-opts.png)
 
-__Question__: Redis supports a master-slave relationship, where slaves replicate what a master has. Slaves can become a master with one command too. What are some strategies for building out a series of master-slave Redis servers using Redis Cloud that supports high availability and or disaster recovery? What are the costs? Hint: Redis Cloud offers different availability zones....
+__Question__: Redis supports a master-slave relationship, where slaves replicate what a master has. Slaves can become a master with one command too. What are some strategies for building out a series of master-slave Redis servers using Redis Cloud that supports high availability and or disaster recovery? What are the costs? Hint: Redis Cloud offers different availability zones _and_ service providers.
 
 
 
