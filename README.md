@@ -15,6 +15,52 @@ In [Lab #1](/labs/lab_1/README.md), you'll become familiar with [MongoDB](http:/
 
 ### Lab #2
 
+In this lab, you'll become familiar with Redis, which is
+
+>an open source, BSD licensed, advanced key-value store. It is often referred to as a data structure server since keys can contain strings, hashes, lists, sets and sorted sets.
+>> [redis.io](http://redis.io/)
+
+If you've ever worked with or are familiar with [Memcached](http://memcached.org/), then you'll quickly see the benefits of Redis as it is quite similar to Memcached in that all values are stored in memory. This makes data access _extremely_ fast. Where Redis is different is that the values of keys can be _more than_ just strings (as alluded to in the description of Redis!). 
+
+Redis makes a great solution for caching; however, it can also be used as a primary data store (provided your data can _fit_ into main memory). Because Redis allows you to store data structures, you can model out objects (via Hashes, usually), etc and there are a number of ORM-like libraries available to do just this. 
+
+#### Getting started with Redis
+
+There's two options when getting started with Redis: you can download and install it (which is quite easy) or you can use an online interactive shell (that only supports _some_ of the standard features). If you are on an OSX machine, I would recommend installing Redis; plus, installing Redis will give you the the `redis-cli` shell command, which you'll want for interacting with cloud-based Redis instances. 
+
+### Installing Redis
+
+Go to the [download section of the Redis website](http://redis.io/download), grab your platform's binary, unzip it, change directories into the root install directory and type:
+
+```
+$> make
+```
+
+Next, to start Redis, within the root directory of your Redis installation type:
+
+```
+$>  src/redis-server
+```
+
+
+Now Redis is up & running. 
+
+##### Using the `redis-cli` shell
+
+Now open up another terminal and change directories into where you installed Redis. Now type:
+
+```
+$> src/redis-cli
+```
+
+### Using the online shell (if you did not install Redis locally)
+
+Go to [try.redis.io](http://try.redis.io/). Remember, this shell doesn't support _all_ the commands you can normally run in a local Redis shell; what's more, a few of the features we'll cover in this workshop *might* not be supported. 
+
+![try redis](../../docs/imgs/try-redis.png)
+
+
+
 ### Lab #3
 
 
@@ -31,7 +77,9 @@ In [Lab #1](/labs/lab_1/README.md), you'll become familiar with [MongoDB](http:/
     * [Redis Cloud](http://redis-cloud.com/)
     * [OpenRedis](https://openredis.com/)
     * [Redis To Go](http://redistogo.com/)
+    * [What is Redis and what do I use it for?](http://stackoverflow.com/questions/7888880/what-is-redis-and-what-do-i-use-it-for)
     * [Java development 2.0: Redis for the real world](http://www.ibm.com/developerworks/library/j-javadev2-22/)
+    * [Redis Tips](https://developer.mozilla.org/en-US/docs/Mozilla/Redis_Tips)
     * [The Disco Blog: Redis](http://thediscoblog.com/blog/categories/redis/)
 
 
