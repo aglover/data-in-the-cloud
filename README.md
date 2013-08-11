@@ -230,11 +230,55 @@ Let me add a few more:
 To see the members of the set, I can use the `smembers` command: 
 ```
  smembers "favorite::beers"
-1) "Gouden Carolus"
-2) "Delirium Tremens"
-3) "Sierra Nevada Pale Ale"
-4) "Dead Guy Ale"
+1) "Sierra Nevada Pale Ale"
+2) "Gouden Carolus"
+3) "Dead Guy Ale"
+4) "Delirium Tremens"
 ```
+
+You can apply set logic (union, diff, etc) to Redis sets. Redis sets support `sinter`, `sunion`, and `sdiff`, for example. To union two sets, you'd type:
+
+```
+sunion set_a set_b
+```
+
+Create a new set with the key "belgian::beers" and add the following items to it: 
+  * Westmalle
+  * Rodenbach
+  * Delirium Tremens
+
+__Question__: What is the result of `sdiff` between "belgian:beers" & "favorite::beers"? Now try switching the order of the two keys
+
+__Question__: How many members are in the union of the two sets? 
+
+
+For more information on [Sets](http://redis.io/commands#set), see the Redis [documentation](http://redis.io/commands#set).
+
+##### Hashes
+
+Another useful data structure that Redis supports is a hash. A hash is a key represented by a list of name-value pairs. Hashes are quite powerful structures in Redis and indeed, some ORM-like tools allow you model objects, such as `user`s and ultimately store them as hashes. 
+
+For instance, I can create a hash representing my business card like so:
+
+```
+ hset "person::ajglover" "name" "Andrew Glover"
+ hset "person::ajglover" "email" "ajglover@gmail.com"
+ hset "person::ajglover" "twitter" "aglover"
+ hset "person::ajglover" "linkedin" "http://www.linkedin.com/in/ajglover"
+``` 
+
+I can then access fields like so:
+
+```
+hget "person::ajglover" "email"
+```
+
+Which produces "ajglover@gmail.com". 
+
+__Question__: How would you model a smart phone using Redis hashes?
+
+
+For more information on [Hashes](http://redis.io/commands#hash), see the Redis [documentation](http://redis.io/commands#hash).
 
 
 ### Lab #3
