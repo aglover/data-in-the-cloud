@@ -107,7 +107,7 @@ For more information on [Strings](http://redis.io/commands#string), see the Redi
 
 ##### Lists
 
-Keeping with the beer theme, I'd like to start to store the beers I'm drinking (from day to day, mind you). For example, I can keep a _list_ of beers I drank for a particular week and then I find out what were the first three, etc. I can do this by using a Redis list. 
+Keeping with the beer theme, I'd like to start to store the beers I'm drinking (from day to day, mind you). For example, I can keep a _list_ of beers I drank for a particular week and then I can find out what were the first three, etc. I can do this by using a Redis list. 
 
 Run the following command:
 
