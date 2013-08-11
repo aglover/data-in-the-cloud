@@ -57,7 +57,7 @@ $> src/redis-cli
 
 Go to [try.redis.io](http://try.redis.io/). Remember, this shell doesn't support _all_ the commands you can normally run in a local Redis shell; what's more, a few of the features we'll cover in this workshop *might* not be supported. 
 
-![try redis](../../docs/imgs/try-redis.png)
+![try redis](/docs/imgs/try-redis.png)
 
 
 
