@@ -180,7 +180,7 @@ Keys can have a TTL (time-to-live). Just set it via the `expire` command like so
 expire "recent::beers" 60 
 ```
 
-`expire` takes an integer value representing seconds. 
+`expire` takes an integer value representing seconds. After issuing the above command I can watch my key expire (i.e. disappear from Redis) by seeing the keys over time. 
 
 ```
 keys *
@@ -203,25 +203,38 @@ keys *
 
 Notice one is missing? You can always obtain the TTL for a key via the `ttl` command.
 
-sets:
 
-redis 127.0.0.1:6379> sadd "favorite::beers" "Guinness"
+For more information on [Keys](http://redis.io/commands#generic), see the Redis [documentation](http://redis.io/commands#generic).
+
+##### Sets
+
+A set is like a list, however, duplicates aren't allowed. If you add a duplicate value to a set, Redis will ignore you. Let me create a set of my favorite beers. 
+
+```
+ sadd "favorite::beers" "Delirium Tremens"
 (integer) 1
-redis 127.0.0.1:6379> sadd "favorite::beers" "Guinness"
+ sadd "favorite::beers" "Delirium Tremens"
 (integer) 0
+```
 
-edis 127.0.0.1:6379> sadd "favorite::beers" "60 Minute IPA"
-(integer) 1
-redis 127.0.0.1:6379> sadd "favorite::beers" "Sierra Nevada Pale Ale"
-(integer) 1
-redis 127.0.0.1:6379> sadd "favorite::beers" "Dead Guy Ale"
-(integer) 1
-redis 127.0.0.1:6379> smembers "favorite::beers"
-1) "60 Minute IPA"
-2) "Guinness"
+See the second addition of Delirium Tremens? The return value of 0 means it wasn't added to the set. 
+
+Let me add a few more: 
+
+```
+ sadd "favorite::beers" "Gouden Carolus"
+ sadd "favorite::beers" "Sierra Nevada Pale Ale"
+ sadd "favorite::beers" "Dead Guy Ale"
+```
+
+To see the members of the set, I can use the `smembers` command: 
+```
+ smembers "favorite::beers"
+1) "Gouden Carolus"
+2) "Delirium Tremens"
 3) "Sierra Nevada Pale Ale"
 4) "Dead Guy Ale"
-
+```
 
 
 ### Lab #3
