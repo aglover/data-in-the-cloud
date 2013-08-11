@@ -274,3 +274,24 @@ For more information on [Hashes](http://redis.io/commands#hash), see the Redis [
 
 Redis has a bunch of other structures and features; you've just scratched the surface here! I encourage you to take a look at the list of [commands](http://redis.io/commands), which is organized by data structure & feature. 
 
+### Redis in the cloud
+
+There are quite a few Redis-as-a-service options available to you. One of the earlier providers of Redis in the cloud is [RedisToGo](https://redistogo.com). Keep in mind that at this time, some providers are rather expensive (as compared to something like MongoHQ); nevertheless, they all provide free Redis options. 
+
+![redis-clout](../../docs/imgs/redis-cloud.png)
+
+I have a free account on RedisToGo and [Redis Cloud](http://redis-cloud.com/) -- you can connect to my Redis Cloud account using the `redis-cli` like so:
+
+```
+/src/redis-cli -h pub-redis-19515.us-east-1-3.1.ec2.garantiadata.com -p 19515 -a gomodev
+```
+
+__Question__: What is my _most recent_ 3 favorite beers? 
+
+
+![redis-clout](../../docs/imgs/redis-opts.png)
+
+__Question__: Redis supports a master-slave relationship, where slaves replicate what a master has. Slaves can become a master with one command too. What are some strategies for building out a series of master-slave Redis servers using Redis Cloud that supports high availability and or disaster recovery? What are the costs? Hint: Redis Cloud offers different availability zones....
+
+
+
