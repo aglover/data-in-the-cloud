@@ -15,7 +15,7 @@ In [Lab #1](/labs/lab_1/README.md), you'll become familiar with [MongoDB](http:/
 
 ### Lab #2
 
-In [Lab #2]](/labs/lab_2/README.md), you'll get to know [Redis](http://redis.io).
+In [Lab #2](/labs/lab_2/README.md), you'll get to know [Redis](http://redis.io).
 
 ### Lab #3
 
