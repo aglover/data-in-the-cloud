@@ -77,7 +77,7 @@ In this case, you've associated the string "some value" to the key `test` using 
 
 ```
 get test
-``
+```
 
 What do you see? 
 
