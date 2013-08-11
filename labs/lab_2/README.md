@@ -269,3 +269,8 @@ __Question__: Can you make the 4 command `hset` example above into one `hmset` c
 __Question__: Why is something like `hmset` advantageous or the more prosaic `hset`? 
 
 For more information on [Hashes](http://redis.io/commands#hash), see the Redis [documentation](http://redis.io/commands#hash).
+
+#### That's not all!
+
+Redis has a bunch of other structures and features; you've just scratched the surface here! I encourage you to take a look at the list of [commands](http://redis.io/commands), which is organized by data structure & feature. 
+
