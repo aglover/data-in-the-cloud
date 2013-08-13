@@ -1,0 +1,15 @@
+{
+	"name":"beer_votes",
+	"version":"0.0.1",
+	"dependencies":{
+		"express":"latest",
+		"dynode" :  "latest",
+		"mocha" : "latest",
+		"should" : "latest",
+		"jade" : "latest",
+		"coffee-script" : "latest"
+	},
+	"engines" : {
+		"node" : "0.6.x"
+	}
+}
